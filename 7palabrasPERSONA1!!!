@@ -1,0 +1,54 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class _7PalabrasPersona {
+    private String nombre;
+    private int edad;
+    private String correoElectronico;
+
+    public _7PalabrasPersona(String nombre, int edad, String correoElectronico) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.correoElectronico = correoElectronico;
+    }
+
+    public void mostrarInfo() {
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Edad: " + edad);
+        System.out.println("Correo Electrónico: " + correoElectronico);
+        System.out.println("---------------------------"); //para separar d:
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<_7PalabrasPersona> personas = new ArrayList<>();
+
+        System.out.print("¿Cuántas personas deseas ingresar? ");
+        int cantidadPersonas = scanner.nextInt();
+        scanner.nextLine();
+
+        for (int i = 0; i < cantidadPersonas; i++) {
+            System.out.println("Ingresando información para la persona #" + (i + 1));
+
+            System.out.print("Nombre: ");
+            String nombre = scanner.nextLine();
+
+            System.out.print("Edad: ");
+            int edad = scanner.nextInt();
+            scanner.nextLine();
+
+            System.out.print("Correo Electrónico: ");
+            String correo = scanner.nextLine();
+
+            _7PalabrasPersona persona = new _7PalabrasPersona(nombre, edad, correo);
+            personas.add(persona);
+        }
+
+        System.out.println("Información de todas las personas ingresadas:");
+        for (_7PalabrasPersona persona : personas) {
+            persona.mostrarInfo();
+        }
+    }
+}
+
+ 
