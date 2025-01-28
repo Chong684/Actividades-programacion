@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class Zodiaco {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("pon tu día de nacimiento (1-31): ");
+        int dia = scanner.nextInt();
+
+        System.out.print("pon tu mes de nacimiento (1-12): ");
+        int mes = scanner.nextInt();
+
+        String signo = "";
+
+        if (mes == 1) {
+            signo = (dia <= 19) ? "capriocrnio" : "acuario";
+        } else if (mes == 2) {
+            signo = (dia <= 18) ? "acuario" : "piscis";
+        } else if (mes == 3) {
+            signo = (dia <= 20) ? "piscis" : "aries";
+        } else if (mes == 4) {
+            signo = (dia <= 19) ? "aries" : "tauro";
+        } else if (mes == 5) {
+            signo = (dia <= 20) ? "tauro" : "gminis";
+        } else if (mes == 6) {
+            signo = (dia <= 20) ? "geminis" : "cancer";
+        } else if (mes == 7) {
+            signo = (dia <= 22) ? "cáncer" : "leo";
+        } else if (mes == 8) {
+            signo = (dia <= 22) ? "leo" : "virgo";
+        } else if (mes == 9) {
+            signo = (dia <= 22) ? "virgo" : "libra";
+        } else if (mes == 10) {
+            signo = (dia <= 22) ? "libra" : "escorpio";
+        } else if (mes == 11) {
+            signo = (dia <= 21) ? "escorpio" : "sagitario";
+        } else if (mes == 12) {
+            signo = (dia <= 21) ? "sagitario" : "Capricornio";
+        }
+
+        if (dia < 1 || dia > 31 || mes < 1 || mes > 12) {
+            System.out.println("esa fecha no se puede mi compa.");
+        } else {
+            System.out.println("Tu signo es: " + signo);
+        }
+    }
+}
