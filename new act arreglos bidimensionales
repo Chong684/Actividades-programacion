@@ -1,0 +1,57 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Ingrese el número de filas:");
+        int rows = scanner.nextInt();
+        System.out.println("Ingrese el número de columnas:");
+        int cols = scanner.nextInt();
+
+        ArreglosBi problemas = new ArreglosBi();
+
+        int[][] matriz = problemas.crearMatriz(rows, cols, scanner);
+
+        System.out.println("Suma de todos los elementos: " + problemas.sumaMatriz(matriz));
+        System.out.println("Resta de todos los elementos: " + problemas.restaMatriz(matriz));
+
+      
+    }
+}
+
+class ArreglosBi {
+    public int[][] crearMatriz(int rows, int cols, Scanner scanner) {
+        int[][] matriz = new int[rows][cols];
+        System.out.println("Ingrese los elementos de la matriz:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                matriz[i][j] = scanner.nextInt();
+            }
+        }
+        return matriz;
+    }
+
+    public int sumaMatriz(int[][] matriz) {
+        int suma = 0;
+        for (int[] fila : matriz) {
+            for (int elemento : fila) {
+                suma += elemento;
+            }
+        }
+        return suma;
+    }
+
+    public int restaMatriz(int[][] matriz) {
+        int resta = matriz[0][0];
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                if (i == 0 && j == 0) {
+                    continue;
+                }
+                resta -= matriz[i][j];
+            }
+        }
+        return resta;
+    }
+}
